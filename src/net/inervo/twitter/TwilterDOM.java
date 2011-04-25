@@ -1,7 +1,8 @@
 package net.inervo.twitter;
 
 /*
- * Copyright (c) 2011, Ted Timmons, Inervo Networks All rights reserved.
+ * Copyright (c) 2011, Ted Timmons, Inervo Networks
+ * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
  * following conditions are met:
@@ -57,7 +58,6 @@ public class TwilterDOM {
 	}
 
 	public static void main( String[] args ) throws Exception {
-		// TODO Auto-generated method stub
 		String outputFile = "twitter.xml";
 		if ( args.length > 0 ) {
 			outputFile = args[0];
