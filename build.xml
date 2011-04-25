@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project TwitFilter with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="U:/code/TwilterDOM.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="net.inervo.twitter.TwilterDOM"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ resolver.jar xml-apis.jar serializer.jar xercesImpl.jar xercesSamples.jar commons-digester-2.1-javadoc.jar commons-digester-2.1-sources.jar commons-digester-2.1.jar commons-digester-rss.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="U:/code/TwitFilter/bin"/>
+            <fileset dir="U:/code/project-libs/bin"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="resolver.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="xml-apis.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="serializer.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="xercesImpl.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="xercesSamples.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="commons-digester-2.1-javadoc.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="commons-digester-2.1-sources.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="commons-digester-2.1.jar"/>
+            <zipfileset dir="U:\code\project-libs\lib" includes="commons-digester-rss.jar"/>
+        </jar>
+    </target>
+</project>
