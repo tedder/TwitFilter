@@ -1,8 +1,7 @@
 package net.inervo.twitter;
 
 /*
- * Copyright (c) 2011, Ted Timmons, Inervo Networks
- * All rights reserved.
+ * Copyright (c) 2011, Ted Timmons, Inervo Networks All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
  * following conditions are met:
@@ -63,14 +62,13 @@ public class TwilterDOM {
 			outputFile = args[0];
 		}
 
-		TwilterDOM tw = new TwilterDOM( "http://twitter.com/statuses/user_timeline/14667502.rss", "tedder42" );
+		TwilterDOM tw = new TwilterDOM( "https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=tedder42", "tedder42" );
 		ByteArrayOutputStream rssOutput = tw.parseTwitter( tw.getRSS() );
 
 		FileOutputStream fos = new FileOutputStream( outputFile );
 		Writer out = new OutputStreamWriter( fos, "UTF8" );
 		out.write( rssOutput.toString() );
 		out.close();
-		System.out.println( "writing RSS: " + outputFile );
 	}
 
 	private InputStream getRSS() throws IOException {
@@ -92,7 +90,7 @@ public class TwilterDOM {
 		// get the root elememt
 		Element docEle = dom.getDocumentElement();
 
-		// get a nodelist of <employee> elements
+		// get a nodelist of elements
 		NodeList items = docEle.getElementsByTagName( "item" );
 
 		for ( int i = 0; i < items.getLength(); ++i ) {
@@ -100,8 +98,9 @@ public class TwilterDOM {
 			Node item = items.item( i );
 			Map<String, String> map = parseNode( item );
 			if ( shouldRepublish( item ) ) {
-				String title = map.get( "title" );
-				String link = map.get( "link" );
+				String title = map.get( "title" ).replace( "tedder42: ", "" );
+				// String link = map.get( "link" );
+				String link = "";
 				rss.addItem( link, title, parseDescription( title ) );
 
 			}
